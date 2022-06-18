@@ -34,34 +34,42 @@ namespace CheckOut
 
         public int GetTotalPrice()
         {
-            int total = 0;
-            var itemsGrouped = items.GroupBy(x => x.SKU);
-
-            foreach (var itemGroup in itemsGrouped)
+            try
             {
-                var groupSpecialPrices = itemSpecialPrices.FirstOrDefault(x => x.SKU == itemGroup.Key);
+                int total = 0;
+                var itemsGrouped = items.GroupBy(x => x.SKU);
 
-                int count = itemGroup.Count();
-
-                if (groupSpecialPrices != null)
+                foreach (var itemGroup in itemsGrouped)
                 {
-                    while (count !< groupSpecialPrices.Quantity)
-                    {
-                        total += groupSpecialPrices.Price;
-                        count -= groupSpecialPrices.Quantity;
-                    }
+                    var groupSpecialPrices = itemSpecialPrices.FirstOrDefault(x => x.SKU == itemGroup.Key);
 
-                    if (count > 0)
+                    int count = itemGroup.Count();
+
+                    if (groupSpecialPrices != null)
+                    {
+                        while (count >= groupSpecialPrices.Quantity)
+                        {
+                            total += groupSpecialPrices.Price;
+                            count -= groupSpecialPrices.Quantity;
+                        }
+
+                        if (count > 0)
+                        {
+                            total += count * itemGroup.First().UnitPrice;
+                        }
+                    }
+                    else
                     {
                         total += count * itemGroup.First().UnitPrice;
                     }
                 }
-                else
-                {
-                    total += count * itemGroup.First().UnitPrice;
-                }
+                return total;
             }
-            return total;
+            catch (Exception ex)
+            {
+                // ToDo standard logging here
+                throw ex;
+            }
         }
     }
 }

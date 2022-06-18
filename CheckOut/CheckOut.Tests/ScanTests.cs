@@ -4,22 +4,27 @@ using System.Collections.Generic;
 
 namespace CheckOut.Tests
 {
-    
-
-//    SKU Unit    Price   Special Price
-//A           50	    3 for 130
-//B	        30	    2 for 45
-//C	        20	
-//D	        15	
     public class ScanTests
     {
         private CheckOut checkOut;
 
         #region TestData
-        Item itemA = new Item { SKU = "A", UnitPrice = 50 };
-        Item itemB = new Item { SKU = "B", UnitPrice = 30 };
-        Item itemC = new Item { SKU = "C", UnitPrice = 20 };
-        Item itemD = new Item { SKU = "D", UnitPrice = 15 };
+        static Item itemA = new Item { SKU = "A", UnitPrice = 50 };
+        static Item itemB = new Item { SKU = "B", UnitPrice = 30 };
+        static Item itemC = new Item { SKU = "C", UnitPrice = 20 };
+        static Item itemD = new Item { SKU = "D", UnitPrice = 15 };
+
+        List<Item> ExpectedResults_No_Items = new List<Item>();
+        List<Item> ExpectedResults_Single_Item = new List<Item> { itemA };
+        List<Item> ExpectedResults_Multiple_Unique_Items = new List<Item>
+            {
+                itemA, itemB, itemC, itemD
+            };
+
+        List<Item> ExpectedResults_Multiple_Repeated_Items = new List<Item>
+            {
+                itemA, itemB, itemC, itemD, itemA, itemB, itemC, itemD
+            };
 
         #endregion TestData
 
@@ -29,65 +34,50 @@ namespace CheckOut.Tests
         {
             checkOut = new CheckOut();
             checkOut.items = new List<Item>();
-
         }
 
         [Test]
         public void Scan_Tests_No_Items()
-        {
-            List<Item> ExpectedResults = new List<Item>();
-           
-            foreach (Item item in ExpectedResults)
+        {          
+            foreach (Item item in ExpectedResults_No_Items)
             {
                 checkOut.Scan(item);
             }
 
-            Assert.AreEqual(ExpectedResults, checkOut.items);
+            Assert.AreEqual(ExpectedResults_No_Items, checkOut.items);
         }
 
         [Test]
         public void Scan_Tests_Single_Item()
         {
-            List<Item> ExpectedResults = new List<Item> { itemA };
-
-            foreach (Item item in ExpectedResults)
+            foreach (Item item in ExpectedResults_Single_Item)
             {
                 checkOut.Scan(item);
             }
 
-            Assert.AreEqual(ExpectedResults, checkOut.items);
+            Assert.AreEqual(ExpectedResults_Single_Item, checkOut.items);
         }
 
         [Test]
         public void Scan_Tests_Muliple_Unique_Items()
         {
-            List<Item> ExpectedResults = new List<Item>
-            {
-                itemA, itemB, itemC, itemD
-            };
-
-            foreach (Item item in ExpectedResults)
+            foreach (Item item in ExpectedResults_Multiple_Unique_Items)
             {
                 checkOut.Scan(item);
             }
 
-            Assert.AreEqual(ExpectedResults, checkOut.items);
+            Assert.AreEqual(ExpectedResults_Multiple_Unique_Items, checkOut.items);
         }
 
         [Test]
         public void Scan_Tests_Muliple_Repeated_Items()
         {
-            List<Item> ExpectedResults = new List<Item>
-            {
-                itemA, itemB, itemC, itemD, itemA, itemB, itemC, itemD
-            };
-
-            foreach (Item item in ExpectedResults)
+            foreach (Item item in ExpectedResults_Multiple_Repeated_Items)
             {
                 checkOut.Scan(item);
             }
 
-            Assert.AreEqual(ExpectedResults, checkOut.items);
+            Assert.AreEqual(ExpectedResults_Multiple_Repeated_Items, checkOut.items);
         }
     }
 }

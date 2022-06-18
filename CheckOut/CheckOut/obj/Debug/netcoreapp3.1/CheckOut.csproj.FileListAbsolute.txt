@@ -1,4 +1,3 @@
-C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.csproj.AssemblyReference.cache
 C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.GeneratedMSBuildEditorConfig.editorconfig
 C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.AssemblyInfoInputs.cache
 C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.AssemblyInfo.cs
