@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CheckOut
 {
@@ -33,7 +34,34 @@ namespace CheckOut
 
         public int GetTotalPrice()
         {
-            return 0;
+            int total = 0;
+            var itemsGrouped = items.GroupBy(x => x.SKU);
+
+            foreach (var itemGroup in itemsGrouped)
+            {
+                var groupSpecialPrices = itemSpecialPrices.FirstOrDefault(x => x.SKU == itemGroup.Key);
+
+                int count = itemGroup.Count();
+
+                if (groupSpecialPrices != null)
+                {
+                    while (count !< groupSpecialPrices.Quantity)
+                    {
+                        total += groupSpecialPrices.Price;
+                        count -= groupSpecialPrices.Quantity;
+                    }
+
+                    if (count > 0)
+                    {
+                        total += count * itemGroup.First().UnitPrice;
+                    }
+                }
+                else
+                {
+                    total += count * itemGroup.First().UnitPrice;
+                }
+            }
+            return total;
         }
     }
 }

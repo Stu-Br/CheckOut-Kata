@@ -7,6 +7,6 @@ namespace CheckOut
     public class Item
     {
         public string SKU;
-        public string UnitPrice;
+        public int UnitPrice;
     }
 }

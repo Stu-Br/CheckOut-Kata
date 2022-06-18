@@ -16,10 +16,10 @@ namespace CheckOut.Tests
         private CheckOut checkOut;
 
         #region TestData
-        Item itemA = new Item { SKU = "A", UnitPrice = "50" };
-        Item itemB = new Item { SKU = "B", UnitPrice = "30" };
-        Item itemC = new Item { SKU = "C", UnitPrice = "20" };
-        Item itemD = new Item { SKU = "D", UnitPrice = "15" };
+        Item itemA = new Item { SKU = "A", UnitPrice = 50 };
+        Item itemB = new Item { SKU = "B", UnitPrice = 30 };
+        Item itemC = new Item { SKU = "C", UnitPrice = 20 };
+        Item itemD = new Item { SKU = "D", UnitPrice = 15 };
 
         #endregion TestData
 
