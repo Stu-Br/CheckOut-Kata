@@ -19,13 +19,23 @@ namespace CheckOut.Tests
         public void Setup()
         {
             checkOut = new CheckOut();
+            checkOut.items = new List<string>();
+
         }
-        [TestCase(new object[] {""}, new object[] { "" }, TestName = "Scan Test No Items")]
-        [TestCase(new object[] { "A" }, new object[] { "A" }, TestName = "Scan Test Single Item")]
-        [TestCase(new object[] { "A", "B" }, new object[] { "A", "B" }, TestName = "Scan Test Multiple Items")]
-        public void Scan_Tests(List<string> Input, List<string> ExpectedResult)
+        [TestCase("", "", TestName = "Scan Test No Items")]
+        [TestCase("A", "A", TestName = "Scan Test Single Item")]
+        [TestCase("A,B,A,B", "A,B,A,B", TestName = "Scan Test Multiple Items")]
+        public void Scan_Tests(string Input, string ExpectedResult)
         {
-            Assert.AreEqual(ExpectedResult, checkOut.items);
+            var itemArray = Input.Split(',');
+            var resultArray = ExpectedResult.Split(',');
+            
+            foreach (string item in itemArray)
+            {
+                checkOut.Scan(item);
+            }
+
+            Assert.AreEqual(resultArray, checkOut.items);
         }
 
         [Test]
