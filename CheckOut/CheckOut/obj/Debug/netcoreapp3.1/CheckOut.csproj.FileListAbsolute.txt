@@ -1,0 +1,9 @@
+C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.AssemblyInfoInputs.cache
+C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.AssemblyInfo.cs
+C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.csproj.CoreCompileInputs.cache
+C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\bin\Debug\netcoreapp3.1\CheckOut.deps.json
+C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\bin\Debug\netcoreapp3.1\CheckOut.dll
+C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\bin\Debug\netcoreapp3.1\CheckOut.pdb
+C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.dll
+C:\Repos\SB\GitHub\CheckOut-Kata\CheckOut\CheckOut\obj\Debug\netcoreapp3.1\CheckOut.pdb
