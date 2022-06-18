@@ -5,16 +5,19 @@ namespace CheckOut
 {
     interface ICheckout
     {
-        List<string> items { get; set; }
-        void Scan(string item);
+        List<Item> items { get; set; }
+        List<ItemSpecialPrice> itemSpecialPrices { get; set; }
+        void Scan(Item item);
         int GetTotalPrice();
     }
 
     public class CheckOut : ICheckout
     {
-        public List<string> items { get; set; }
+        public List<Item> items { get; set; }
+        public List<ItemSpecialPrice> itemSpecialPrices { get; set; }
 
-        public void Scan(string item)
+
+        public void Scan(Item item)
         {
             try
             {
